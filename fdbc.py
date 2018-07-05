@@ -53,7 +53,7 @@ def get_role(tbl, mode = 'R'):
   if '+' in mode:
     privileges.extend('R')
 
-  db = fdbc(srv='real')
+  db = fdbc(srv='prod')
   db.execute('''
     select rdb$user from rdb$user_privileges
     where exists (select * from rdb$roles where rdb$role_name = rdb$user)
